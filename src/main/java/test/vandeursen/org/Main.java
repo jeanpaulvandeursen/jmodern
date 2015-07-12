@@ -20,6 +20,13 @@ public class Main {
 
         // print a nicely-formatted student directory
         directory.forEach((letter, names) -> System.out.println(letter + "\n\t" + names.stream().collect(joining("\n\t"))));
+     
+        // does the same as above, only written shorter
+        range(0, 100)
+            .mapToObj(i -> randomString(new Random(), 'A', 'Z', 10))
+            .sorted()
+            .collect(groupingBy(name -> name.charAt(0)))
+            .forEach((letter, names) -> System.out.println(letter + "\n\t" + names.stream().collect(joining("\n\t"))));
         
     }
 
